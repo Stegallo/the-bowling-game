@@ -40,3 +40,17 @@ def test_one_spare(request):
     for _ in range(17):
         game.roll(0)
     assert game.get_score() == 16
+
+def test_one_strike(request):
+    """
+        test one strike
+    """
+    log("""
+        ... {} ...""".format(request.node.name))
+    game = Game()
+    game.roll(10)
+    game.roll(3)
+    game.roll(4)
+    for _ in range(16):
+        game.roll(0)
+    assert game.get_score() == 24
