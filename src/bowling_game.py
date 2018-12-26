@@ -19,7 +19,8 @@ class Game(object):
     def get_score(self):
         """ calculates final score """
         score = 0
-        for i in self.rolls:
-            score = score + i
+        frames = 10
+        for i in range(frames):
+            score += self.rolls[i] + self.rolls[i+1]
 
         return score
