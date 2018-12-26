@@ -8,7 +8,6 @@ class Game(object):
     def __init__(self):
         """ init method """
         self.rolls = []
-        self.current_roll = 0
 
     def roll(self, pins):
         """ records a roll """
