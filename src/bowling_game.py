@@ -16,11 +16,21 @@ class Game(object):
         # self.score += pins
         self.rolls.append(pins)
 
+    def is_spare(self, i):
+        """ """
+        if self.rolls[i] + self.rolls[i+1] == 10:
+            return True
+        return False
+
     def get_score(self):
         """ calculates final score """
         score = 0
         frames = 10
         for i in range(frames):
-            score += self.rolls[i] + self.rolls[i+1]
+            j = 2*i
+            score += self.rolls[j] + self.rolls[j+1]
+            if self.is_spare(j):
+                score += self.rolls[j+2]
+
 
         return score

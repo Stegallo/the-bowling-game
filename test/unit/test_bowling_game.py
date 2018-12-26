@@ -26,3 +26,17 @@ def test_all_ones(request):
     for _ in range(20):
         game.roll(1)
     assert game.get_score() == 20
+
+def test_one_spare(request):
+    """
+        test one spare
+    """
+    log("""
+        ... {} ...""".format(request.node.name))
+    game = Game()
+    game.roll(5)
+    game.roll(5)
+    game.roll(3)
+    for _ in range(17):
+        game.roll(0)
+    assert game.get_score() == 16
