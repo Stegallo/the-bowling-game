@@ -17,7 +17,7 @@ class Game(object):
         self.rolls.append(pins)
 
     def is_spare(self, i):
-        """ """
+        """ checks if there is a spare in the frame having first roll i """
         if self.rolls[i] + self.rolls[i+1] == 10:
             return True
         return False
@@ -25,12 +25,12 @@ class Game(object):
     def get_score(self):
         """ calculates final score """
         score = 0
+        roll = 0
         frames = 10
-        for i in range(frames):
-            j = 2*i
-            score += self.rolls[j] + self.rolls[j+1]
-            if self.is_spare(j):
-                score += self.rolls[j+2]
-
+        for frame in range(frames):
+            score += self.rolls[roll] + self.rolls[roll+1]
+            if self.is_spare(roll):
+                score += self.rolls[roll+2]
+            roll += 2
 
         return score
