@@ -38,7 +38,7 @@ class Game(object):
             if self.is_spare(roll):
                 score += self.rolls[roll+2]
             if self.is_strike(roll):
-                score += self.rolls[roll+2] + self.rolls[roll+3]
+                score += self.rolls[roll+2]
                 roll += -1
             roll += 2
 
